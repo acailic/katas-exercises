@@ -68,7 +68,8 @@ class BerlinClockTest extends AnyFunSuite with Matchers {
 
   test("result  correct seconds, hours and minutes") {
     val berlinTime = BerlinClock.convertToBerlinTime("16:37:16")
-    val expected = Array("Y", "RRRO", "ROOO", "YYRYYRYOOOO", "YYOO")
+    //seconds, top minutes, bottom minutes, top hours, bottom hours
+    val expected = Array("Y", "YYRYYRYOOOO", "YYOO", "RRRO", "ROOO")
     berlinTime should equal(expected)
   }
 }

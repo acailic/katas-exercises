@@ -17,21 +17,24 @@ object BerlinClock {
   /*
 
    */
+  def topHours(number: Int) = onOff(4, topNumberOfOnSigns(number))
 
-  def bottomMinutes(minutes: Int): String = lamps(minutes%5,1,'R',4)
+  def bottomHours(number: Int) = onOff(4, number % 5)
 
-  def topMinutes(minutes: Int):String = lamps(minutes,5,'R',11)
+  def topMinutes(number: Int) = onOff(11, topNumberOfOnSigns(number), "Y").replaceAll("YYY", "YYR")
 
-  def bottomHours(hours: Int): String = lamps(hours%5, 1, 'R',4)
+  def bottomMinutes(number: Int) = onOff(4, number % 5, "Y")
 
-  def topHours(hours: Int): String = lamps(hours,5,'R',4)
+  private def onOff(lamps: Int, onSigns: Int, onSign: String = "R") = {
+    onSign * onSigns + "O" * (lamps - onSigns)
+  }
+
+  private def topNumberOfOnSigns(number: Int) = (number - (number % 5)) / 5
 
   def seconds(seconds: Int): String = if (seconds % 2 == 0) "Y" else "O"
   /*
 
    */
-  private def lamps(number: Int, multiples: Int, color: Char, times: Int): String = {
-     var result = (1 to times).map((value)-> if (value<=number) color else "0"))
-  }
+
 
 }
