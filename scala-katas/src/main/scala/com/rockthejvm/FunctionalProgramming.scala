@@ -43,5 +43,26 @@ object FunctionalProgramming extends App {
   doubler(4)
 
 
+  /*    Int => Int
+   new Function1 [Int,Int] {
+   override def apply(x: Int)=  2*x
+   }
+   */
+
+  // high order function
+  val aMapped: List[Int] = List(1, 2, 3).map(x => x + 1)
+  println(aMapped)
+  val flatMapped = List(23,2,2).flatMap(x=>List(x,2*x))
+  println(flatMapped)
+  val flatMapped2 = List(23,2,2).flatMap {
+    x=>List(x,2*x)
+  }
+  val flatMapped3 = List(2,1,1,1,2).filter(x=>x>1)
+  println(flatMapped3)
+  val flatMapped4 = List(2,1,1,1,2).filter(_<=1)
+  println(flatMapped4)
+
+
+
 
 }
