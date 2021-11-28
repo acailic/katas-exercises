@@ -83,6 +83,4 @@ class TennisGameUnitTest extends AnyFunSuite with Matchers {
     game.score should be ("Victor won")
   }
 
-}}
-
 }
